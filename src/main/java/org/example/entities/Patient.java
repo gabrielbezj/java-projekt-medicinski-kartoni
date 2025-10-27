@@ -1,14 +1,15 @@
 package org.example.entities;
 
-public class Patient extends Person{
-
+public class Patient extends Person implements Trackable {
+    private String oib;
+    private String insuranceId;
     private String gender;
-    private String address;
 
-    public Patient(String oib, String firstName, String lastName, Integer age, String email, String gender, String address) {
-        super(oib, firstName, lastName, age, email);
+    public Patient(String oib, String insuranceId, String firstName, String lastName, Integer age, String gender) {
+        super(firstName, lastName, age);
+        this.oib = oib;
+        this.insuranceId = insuranceId;
         this.gender = gender;
-        this.address = address;
     }
 
     @Override
@@ -16,14 +17,16 @@ public class Patient extends Person{
         System.out.println(getFirstName() + " " + getLastName() + " (" + gender + ")");
     }
 
+    @Override
+    public String trackingId() { return oib; }
+
+    public String getOib() { return oib; }
+    public String getInsuranceId() { return insuranceId; }
     public String getGender() { return gender; }
-    public String getAddress() { return address; }
-
-
 
     @Override
     public String toString() {
-        return "Patient{OIB ='" + getOib() + "', ime='" + getFirstName() + "', prezime='" + getLastName() +
+        return "Patient{OIB ='" + oib + "', Broj osiguranika ='" + insuranceId + "', ime='" + getFirstName() + "', prezime='" + getLastName() +
                 "', dob=" + getAge() + ", spol='" + gender + "'}";
     }
 }

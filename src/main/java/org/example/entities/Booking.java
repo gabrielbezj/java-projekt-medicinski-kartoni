@@ -1,10 +1,13 @@
 package org.example.entities;
 
-public class Booking {
-    private Long id;
-    private Patient patient;
-    private Doctor doctor;
-    private String dateTime;
+import java.io.Serializable;
+
+public non-sealed class Booking implements Reservable, Trackable {
+    private final Long id;
+    private final Patient patient;
+    private final Doctor doctor;
+    private final String dateTime;
+    private boolean reserved;
 
     public Booking(Long id, Patient patient, Doctor doctor, String dateTime) {
         this.id = id;
@@ -13,35 +16,22 @@ public class Booking {
         this.dateTime = dateTime;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId(){ return id; }
+    public Patient getPatient(){ return patient; }
+    public Doctor getDoctor(){ return doctor; }
+    public String getDateTime(){ return dateTime; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Override
+    public boolean reserve() { reserved = true; return true; }
 
-    public Patient getPatient() {
-        return patient;
-    }
+    @Override
+    public boolean cancel()  { reserved = false; return true; }
 
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
+    @Override
+    public String trackingId() { return "BOOK-" + id; }
 
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public String getDateTime() {
-        return dateTime;
-    }
-
-    public void setDateTime(String dateTime) {
-        this.dateTime = dateTime;
+    @Override
+    public String toString(){
+        return "Booking{" + id + ", " + dateTime + ", " + patient + ", " + doctor + ", reserved=" + reserved + "}";
     }
 }

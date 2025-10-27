@@ -2,38 +2,24 @@ package org.example.entities;
 
 import java.math.BigDecimal;
 
-public class Item {
+public class Item implements Trackable {
     private Long id;
     private String name;
     private BigDecimal price;
 
     public Item(Long id, String name, BigDecimal price) {
-        this.id = id;
-        this.name = name;
-        this.price = price;
+        this.id = id; this.name = name; this.price = price;
     }
 
-    public Long getId() {
-        return id;
-    }
+    public Long getId(){ return id; }
+    public String getName(){ return name; }
+    public BigDecimal getPrice(){ return price; }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Override
+    public String trackingId() { return "ITEM - " + id; }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
+    @Override
+    public String toString(){
+        return "Item{" + id + ", " + name + ", " + price + "}";
     }
 }
