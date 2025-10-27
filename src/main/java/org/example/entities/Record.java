@@ -7,43 +7,18 @@ public class Record {
     private Item[] items;
 
 
-    public Record(Long id, Patient patient, Doctor doctor, Item[] items) {
-        this.id = id;
-        this.patient = patient;
-        this.doctor = doctor;
-        this.items = items;
+    public Record(long id, Patient patient, Doctor doctor, Item[] items) {
+        this.id = id; this.patient = patient; this.doctor = doctor; this.items = items;
     }
 
+    public long getId(){ return id; }
+    public Patient getPatient(){ return patient; }
+    public Doctor getDoctor(){ return doctor; }
+    public Item[] getItems(){ return items; }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Patient getPatient() {
-        return patient;
-    }
-
-    public void setPatient(Patient patient) {
-        this.patient = patient;
-    }
-
-    public Doctor getDoctor() {
-        return doctor;
-    }
-
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
-    }
-
-    public Item[] getItems() {
-        return items;
-    }
-
-    public void setItems(Item[] items) {
-        this.items = items;
+    @Override
+    public String toString(){
+        return "Record{" + id + ", patient =" + patient + ", doctor =" + doctor +
+                ", items =" + (items==null ? 0 : items.length) + "}";
     }
 }
