@@ -1,5 +1,11 @@
 package org.example.entities;
 
+/**
+ * Nadklasa za sve osobe u sustavu.
+ * <p>Sadrži zajednička polja: ime, prezime i dob.</p>
+ * <p>Nasljeđuju je klase {@link Patient} i {@link Doctor}.</p>
+ */
+
 public abstract class Person {
     private String firstName;
     private String lastName;

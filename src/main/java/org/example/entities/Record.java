@@ -1,5 +1,11 @@
 package org.example.entities;
 
+/**
+ * Povezuje pacijenta, doktora i popis itema.
+ * <p>Predstavlja medicinski zapis o pregledu ili postupku.</p>
+ */
+
+
 public class Record {
     private Long id;
     private Patient patient;

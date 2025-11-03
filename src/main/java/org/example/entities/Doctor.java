@@ -1,5 +1,12 @@
 package org.example.entities;
 
+/**
+ * Predstavlja doktora u sustavu.
+ * <p>Nasljeđuje {@link Person} i sadrži podatke o specijalizaciji i e-mail adresi.</p>
+ * <p>Kreira se pomoću Builder obrasca.</p>
+ */
+
+
 public class Doctor extends Person implements Trackable {
 
     private Integer id;

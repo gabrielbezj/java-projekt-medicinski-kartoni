@@ -1,5 +1,9 @@
 package org.example.entities;
 
+/**
+ *  Predstavlja pacijenta.
+ * <p>Nasljeđuje {@link Person} i dodaje podatke o OIB-u, broju osiguranika i spolu.</p>
+ */
 public class Patient extends Person implements Trackable {
     private String oib;
     private String insuranceId;

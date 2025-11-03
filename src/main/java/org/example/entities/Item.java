@@ -2,6 +2,12 @@ package org.example.entities;
 
 import java.math.BigDecimal;
 
+/**
+ * Predstavlja medicinski artikl ili uslugu.
+ * <p>Sadrži ID, naziv i cijenu artikla.</p>
+ */
+
+
 public class Item implements Trackable {
     private Long id;
     private String name;
